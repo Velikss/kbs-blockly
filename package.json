@@ -1,0 +1,25 @@
+{
+  "name": "kbs-blockly-clinet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Velikss/kbs-blockly-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Velikss/kbs-blockly-client/issues"
+  },
+  "homepage": "https://github.com/Velikss/kbs-blockly-client#readme",
+  "dependencies": {
+    "gulp-csso": "^4.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
