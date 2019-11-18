@@ -20,8 +20,11 @@ function js() {
 }
 
 function blockly() {
-    return src([`${GoogleFolder}blockly_compressed.js`, `${GoogleFolder}blocks_compressed.js`, `${GoogleFolder}python_compressed.js`, `${GoogleFolder}msg/**/*.js`])
-        .pipe(dest('build/js'))
+    src([`${GoogleFolder}blockly_compressed.js`, `${GoogleFolder}blocks_compressed.js`, `${GoogleFolder}python_compressed.js`])
+        .pipe(dest('build/js'));
+
+    return src(`${GoogleFolder}msg/js/*.js`)
+        .pipe(dest('build/js/lang'));
 }
 
 exports.js = js;
