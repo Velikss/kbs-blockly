@@ -5,9 +5,8 @@ var workspace = Blockly.inject('blocklyDiv',
 
 function myUpdateFunction(event) {
     let a = Blockly.JavaScript.workspaceToCode(workspace);
-    if (!(a == null || a == undefined || a === "")) {
+    if (!(a == null || a === "")) {
         document.getElementById('textarea').value = a;
-        console.log(a);
     }
 }
 workspace.addChangeListener(myUpdateFunction);
