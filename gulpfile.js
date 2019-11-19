@@ -1,4 +1,4 @@
-const { src, dest, parallel } = require('gulp');
+const {src, dest, parallel } = require('gulp');
 const minifyCSS = require('gulp-csso');
 
 const GoogleFolder = 'vendor/google-blockly-ba6dfd8/';
@@ -15,12 +15,12 @@ function css() {
 }
 
 function js() {
-    return src('src/**/*.js', { sourcemaps: true })
+    return src('src/js/**/*.js', { sourcemaps: true })
         .pipe(dest('build/js', { sourcemaps: true }))
 }
 
 function blockly() {
-    src([`${GoogleFolder}blockly_compressed.js`, `${GoogleFolder}blocks_compressed.js`, `${GoogleFolder}python_compressed.js`])
+    src([`${GoogleFolder}blockly_compressed.js`, `${GoogleFolder}blocks_compressed.js`, `${GoogleFolder}javascript_compressed.js`])
         .pipe(dest('build/js'));
 
     return src(`${GoogleFolder}msg/js/*.js`)

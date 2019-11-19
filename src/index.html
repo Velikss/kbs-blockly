@@ -6,25 +6,36 @@
 
     <script src="js/blockly_compressed.js"></script>
     <script src="js/blocks_compressed.js"></script>
-    <script src="js/python_compressed.js"></script>
+    <script src="js/javascript_compressed.js"></script>
     <script src="js/lang/nl.js"></script>
+
 
 </head>
 <body>
-    <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 
-    <xml id="toolbox" style="display: none">
+<button onclick="test">test</button>
+<label for="textarea"></label>
+<textarea id="textarea"></textarea>
+
+<xml id="toolbox" style="display: none">
+    <category name="test" colour="#AAAAAA">
         <block type="controls_if"></block>
         <block type="controls_repeat_ext"></block>
+    </category>
+    <category name="testing2" colour="#CCCCCC">
         <block type="logic_compare"></block>
         <block type="math_number"></block>
         <block type="math_arithmetic"></block>
         <block type="text"></block>
         <block type="text_print"></block>
-    </xml>
-    <script>
-        let workspace = Blockly.inject('blocklyDiv',
-            {toolbox: document.getElementById('toolbox')});
-    </script>
+    </category>
+    <category name="custom" colour="#888888">
+        <block type="string_length"></block>
+        <block type="led_change"></block>
+    </category>
+</xml>
+
+<script src="js/main.js"></script>
 </body>
 </html>
