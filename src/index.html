@@ -1,42 +1,47 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Blockly</title>
 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/blockly_compressed.js"></script>
     <script src="js/blocks_compressed.js"></script>
     <script src="js/javascript_compressed.js"></script>
     <script src="js/lang/en.js"></script>
-
-
+    
 </head>
 <body>
-<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+    <div id="header">
+        <h1 id="robot_title">Robot Name</h1>
+        <img id="logo" src="../resources/img/Arexx-logo.png" alt="AREXX ENGINEERING">
+    </div>
 
-<button onclick="test">test</button>
-<label for="textarea"></label>
-<textarea id="textarea"></textarea>
+    <xml id="toolbox" style="display: none">
+        <category name="test" colour="#AAAAAA">
+            <block type="controls_if"></block>
+            <block type="controls_repeat_ext"></block>
+        </category>
+        <category name="testing2" colour="#CCCCCC">
+            <block type="logic_compare"></block>
+            <block type="math_number"></block>
+            <block type="math_arithmetic"></block>
+            <block type="text"></block>
+            <block type="text_print"></block>
+        </category>
+        <category name="custom" colour="#888888">
+            <block type="string_length"></block>
+            <block type="led_change"></block>
+            <block type="logic_boolean"></block>
+        </category>
+    </xml>
 
-<xml id="toolbox" style="display: none">
-    <category name="test" colour="#AAAAAA">
-        <block type="controls_if"></block>
-        <block type="controls_repeat_ext"></block>
-    </category>
-    <category name="testing2" colour="#CCCCCC">
-        <block type="logic_compare"></block>
-        <block type="math_number"></block>
-        <block type="math_arithmetic"></block>
-        <block type="text"></block>
-        <block type="text_print"></block>
-    </category>
-    <category name="custom" colour="#888888">
-        <block type="string_length"></block>
-        <block type="led_change"></block>
-        <block type="logic_boolean"></block>
-    </category>
-</xml>
+    <div id="blocklyDiv"></div>
 
-<script src="js/main.js"></script>
+    <!-- <button onclick="test">test</button>
+    <label for="output"></label>
+    <textarea id="output"></textarea>
+ -->
+    <script src="js/main.js"></script>
 </body>
 </html>
