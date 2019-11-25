@@ -11,5 +11,7 @@ Blockly.JavaScript['string_length'] = function (block) {
 Blockly.JavaScript['led_change'] = function (block) {
     let led = block.getFieldValue('LED_VALUE');
     let bool = Blockly.JavaScript.valueToCode(block, 'BOOL_VALUE', Blockly.JavaScript.ORDER_ATOMIC) || 'false';
-    return `led_${led}(` + bool + ');';
+    let code = `led_${led}(` + bool + ')';
+
+    return Blockly.JavaScript.scrubNakedValue(code);
 };
