@@ -1,4 +1,4 @@
-const {src, dest, parallel } = require('gulp');
+const {src, dest, parallel, watch } = require('gulp');
 const minifyCSS = require('gulp-csso');
 
 const GoogleFolder = 'vendor/google-blockly-ba6dfd8/';
@@ -27,8 +27,14 @@ function blockly() {
         .pipe(dest('build/js/lang'));
 }
 
-exports.js = js;
-exports.css = css;
-exports.html = html;
-
 exports.build = parallel(js, css, html, blockly);
+
+exports.watch = function() {
+    watch(['src/**/*.html', 'src/**/*.css', 'src/js/**/*.js'], {events: 'all'}, function(cb) {
+        js();
+        css();
+        html();
+        blockly();
+        cb();
+    })
+}
