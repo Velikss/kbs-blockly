@@ -1,47 +1,193 @@
 <!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blockly</title>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Blockly</title>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/blockly_compressed.js"></script>
-    <script src="js/blocks_compressed.js"></script>
-    <script src="js/javascript_compressed.js"></script>
-    <script src="js/lang/en.js"></script>
-    
-</head>
-<body>
-    <div id="header">
-        <h1 id="robot_title">Robot Name</h1>
-        <img id="logo" src="../resources/img/Arexx-logo.png" alt="AREXX ENGINEERING">
-    </div>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="js/blockly_compressed.js"></script>
+        <script src="js/blocks_compressed.js"></script>
+        <script src="js/javascript_compressed.js"></script>
+        <script src="js/lang/nl.js"></script>
+        
+    </head>
+    <body>
+        <div class="box">
+            <div class="row header">
+                <div id="left">
+                    <h1>Blockly Robot</h1>
+                    <div class="buttons">
+                        <div class="select-box">
+                          <div class="select-box__current" tabindex="1">
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="0" value="1" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Duits</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="1" value="2" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Engels</p>
+                            </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="2" value="3" name="Ben" checked="checked"/>
+                                    <p class="select-box__input-text">Frans</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="3" value="4" name="Ben" checked="checked"/>
+                                    <p class="select-box__input-text">Nederlands</p>
+                                </div>
+                                <img class="select-box__icon" src="../resources/img/caret_down.svg" aria-hidden="true"/>
+                            </div>
+                            <ul class="select-box__list">
+                                <li>
+                                    <label class="select-box__option" for="0" aria-hidden="aria-hidden">Duits</label>
+                                </li>
+                                <li>
+                                    <label class="select-box__option" for="1" aria-hidden="aria-hidden">Engels</label>
+                                </li>
+                                <li>
+                                    <label class="select-box__option" for="2" aria-hidden="aria-hidden">Frans</label>
+                                </li>
+                                <li>
+                                    <label class="select-box__option" for="3" aria-hidden="aria-hidden">Nederlands</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- <select data-placeholder="Choose a Language...">
+                            <option value="DE">Duits</option>
+                            <option value="EN">Engels</option>
+                            <option value="FR">Frans</option>
+                            <option value="NL">Nederlands</option>
+                        </select> -->
+                        <div class="button_cont" align="center"><a class="example_d" href="#" rel="nofollow noopener">Start programma</a></div>
+                        <!-- <button id="download">Download programma</button>
+                        <button id="upload">Upload programma</button>
+                        <button id="help">Help</button>-->
+                    </div>
+                </div>
+                <div id="right">
+                    <img src="../resources/img/Arexx-logo.png">
+                </div>
+            </div>
 
-    <xml id="toolbox" style="display: none">
-        <category name="test" colour="#AAAAAA">
-            <block type="controls_if"></block>
-            <block type="controls_repeat_ext"></block>
-        </category>
-        <category name="testing2" colour="#CCCCCC">
-            <block type="logic_compare"></block>
-            <block type="math_number"></block>
-            <block type="math_arithmetic"></block>
-            <block type="text"></block>
-            <block type="text_print"></block>
-        </category>
-        <category name="custom" colour="#888888">
-            <block type="string_length"></block>
-            <block type="led_change"></block>
-            <block type="logic_boolean"></block>
-        </category>
-    </xml>
+            <div class="row content">
+                <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+                    <category name="Logica" colour="%{BKY_LOGIC_HUE}">
+                        <category name="Als - dan" colour="%{BKY_LOGIC_HUE}">
+                            <block type="controls_if"></block>
+                                <block type="controls_if">
+                                <mutation else="1"></mutation>
+                            </block>
+                            <block type="controls_if">
+                                <mutation elseif="1" else="1"></mutation>
+                            </block>
+                        </category>
+                        <category name="Waar / Niet waar" colour="%{BKY_LOGIC_HUE}">
+                            <block type="logic_compare"></block>
+                            <block type="logic_operation"></block>
+                            <block type="logic_negate"></block>
+                            <block type="logic_boolean"></block>
+                            <block type="logic_null"></block>
+                            <block type="logic_ternary"></block>
+                        </category>
+                    </category>
+                    <category name="Lussen" colour="%{BKY_LOOPS_HUE}">
+                        <block type="controls_repeat_ext">
+                            <value name="TIMES">
+                            <block type="math_number">
+                                <field name="NUM">10</field>
+                            </block>
+                        </value>
+                    </block>
+                    <block type="controls_whileUntil"></block>
+                    <block type="controls_for">
+                        <field name="VAR">i</field>
+                            <value name="FROM">
+                                <block type="math_number">
+                                    <field name="NUM">1</field>
+                                </block>
+                            </value>
+                            <value name="TO">
+                                <block type="math_number">
+                                    <field name="NUM">10</field>
+                                </block>
+                            </value>
+                            <value name="BY">
+                                <block type="math_number">
+                                    <field name="NUM">1</field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="controls_forEach"></block>
+                        <block type="controls_flow_statements"></block>
+                    </category>
+                    <category name="Wiskunde" colour="%{BKY_MATH_HUE}">
+                        <block type="math_number">
+                            <field name="NUM">123</field>
+                        </block>
+                        <block type="math_arithmetic"></block>
+                        <block type="math_single"></block>
+                        <block type="math_trig"></block>
+                        <block type="math_constant"></block>
+                        <block type="math_number_property"></block>
+                        <block type="math_round"></block>
+                        <block type="math_on_list"></block>
+                        <block type="math_modulo"></block>
+                        <block type="math_constrain">
+                            <value name="LOW">
+                                <block type="math_number">
+                                    <field name="NUM">1</field>
+                                </block>
+                            </value>
+                            <value name="HIGH">
+                                <block type="math_number">
+                                    <field name="NUM">100</field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="math_random_int">
+                            <value name="FROM">
+                                <block type="math_number">
+                                    <field name="NUM">1</field>
+                                </block>
+                            </value>
+                            <value name="TO">
+                                <block type="math_number">
+                                    <field name="NUM">100</field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="math_random_float"></block>
+                        <block type="math_atan2"></block>
+                    </category>
+                    <category name="Lijsten" colour="%{BKY_LISTS_HUE}">
+                        <block type="lists_create_empty"></block>
+                        <block type="lists_create_with"></block>
+                        <block type="lists_repeat">
+                            <value name="NUM">
+                                <block type="math_number">
+                                    <field name="NUM">5</field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="lists_length"></block>
+                        <block type="lists_isEmpty"></block>
+                        <block type="lists_indexOf"></block>
+                        <block type="lists_getIndex"></block>
+                        <block type="lists_setIndex"></block>
+                    </category>
+                    <sep></sep>
+                    <category name="Variabelen" custom="VARIABLE" colour="%{BKY_VARIABLES_HUE}">
+                    </category>
+                    <category name="Functies" custom="PROCEDURE" colour="%{BKY_PROCEDURES_HUE}">
+                    </category>
+                </xml>
+                <div id="blocklyDiv"></div>
+            </div>
+            <div class="row footer">
+                <p><b>footer</b> (fixed height)</p>
+            </div>
+        </div>
 
-    <div id="blocklyDiv"></div>
-
-    <!-- <button onclick="test">test</button>
-    <label for="output"></label>
-    <textarea id="output"></textarea>
- -->
-    <script src="js/main.js"></script>
-</body>
+        <script src="js/main.js"></script>
+    </body>
 </html>
